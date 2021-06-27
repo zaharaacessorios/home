@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+    *, 
+    *:before, 
+    *:after{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .menuH{
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+        position: fixed;
+        top: 2px;
+        right: 25px;
+        /*background-image: linear-gradient(to bottom, rgb(242, 176, 188), #FFBAC7);*/
+        background: rgb(245, 217, 217);
+        cursor: pointer;
+        box-shadow: 0 0 0 rgb(245, 217, 217);
+        transition: box-shadow 1s cubic-bezier(0.15, 1.01, 0.3, 1.08);
+    }
+    .menuH:hover{
+        box-shadow: 0 0 0 8px rgb(245, 217, 217), 0 0 0 rgb(245, 217, 217);
+    }
+    .hamburguer{
+        position: relative;
+        display: block;
+        background-color: black;
+        width: 30px;
+        height: 2px;
+        top: 24px;
+        left: 11px;
+        transition: .5s ease-in-out;
+    }
+    .hamburguer:before, .hamburguer:after{
+        background: black;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transition: .5s ease-in-out;
+    }
+    .hamburguer:before{
+        top: -10px;
+    }
+    .hamburguer:after{
+        bottom: -10px;
+    }
+    input{
+        display: none;
+    }
+    input:checked ~ .menuH .ulMenu{
+        opacity: 1;
+    } 
+    input:checked ~ label .menuH{
+        box-shadow: 0 0 0 130vw rgb(245, 217, 217), 0 0 0 130vh rgb(245, 217, 217);
+    }
+    input:checked ~ label .hamburguer{
+        transform: rotate(45deg);
+        
+    }
+    input:checked ~ label .hamburguer:before{
+        transform: rotate(90deg);
+        top: 0;
+        
+    }
+    input:checked ~ label .hamburguer:after{
+        transform: rotate(90deg);
+        bottom: 0;
+        
+    }
+    .ulMenu{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        list-style: none;
+        opacity: 0;
+        transition: .25s .1s cubic-bezier(0, 1.07, 0, 1.02);
+    }
+    .ulMenu a{
+        color: black;
+        font-size: 20pt;
+        text-decoration: none;
+        display: block;
+        margin-bottom: 40px;
+    }
+    @media (max-width: 1000px){
+        .ulMenu{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            list-style: none;
+            opacity: 1;
+            transition: .25s .1s cubic-bezier(0, 1.07, 0, 1.02);
+        }
+        .ulMenu a{
+            color: black;
+            font-size: 20pt;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 40px;
+        }
+    }
