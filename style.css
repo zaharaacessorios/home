@@ -426,7 +426,7 @@ input{
         text-align: center;
     }
 }
-@media (max-width: 440px){
+@media (max-width: 540px){
     .copyright{
         display: grid;      
         grid-template-columns: 1fr;
@@ -444,7 +444,7 @@ input{
         font-size: 12pt;
     }
 }
-@media (max-width: 360px){
+@media (max-width: 380px){
     h4{
         position: relative;
     }
